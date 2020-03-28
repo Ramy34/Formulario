@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Application Form</string>
+    <string name="nombre">Name</string>
+    <string name="apellidoP">Last Name</string>
+    <string name="apellidoM">Mother\'s last name</string>
+    <string name="fecha">Birthday</string>
+    <string name="enviar">Send</string>
+    <string name="error">You must fill all the fields</string>
+    <string name="aprobacion">The data is sent</string>
+    <string name="requerido">Required</string>
+    <string name="error1">Invalid date</string>
+    <string name="aries">Aries</string>
+    <string name="tauro">Taurus</string>
+    <string name="geminis">Gemini</string>
+    <string name="cancer">Cancer</string>
+    <string name="leo">Leo</string>
+    <string name="acuario">Aquarius</string>
+    <string name="piscis">Pisces</string>
+    <string name="virgo">Virgo</string>
+    <string name="sagitario">Sagittarius</string>
+    <string name="escorpio">Scorpio</string>
+    <string name="capricornio">Capricorn</string>
+    <string name="libra">Libra</string>
+    <string name="rata">Rat</string>
+    <string name="buey">Ox</string>
+    <string name="tigre">Tiger</string>
+    <string name="conejo">Rabbit</string>
+    <string name="dragon">Dragon</string>
+    <string name="serpiente">Snake</string>
+    <string name="caballo">Horse</string>
+    <string name="oveja">Goat</string>
+    <string name="mono">Monkey</string>
+    <string name="gallo">Rooster</string>
+    <string name="perro">Dog</string>
+    <string name="cerdo">Pig</string>
+    <string name="inicio">Welcome </string>
+    <string name="rfc">"Your RFC is: "</string>
+    <string name="edad">Your age is: </string>
+    <string name="signoChino">Your chinese zodiac sign is:</string>
+    <string name="signoZodiacal">Your zodiac sign is:</string>
+    <string name="regresar">Back</string>
+    <string name="descripcionSZ">It is the image of your zodiac sign</string>
+    <string name="descripcionSC">It is the image of your chinese sign</string>
+    <string name="nada">Nothing</string>
+</resources>
