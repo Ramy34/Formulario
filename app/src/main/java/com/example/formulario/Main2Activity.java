@@ -2,6 +2,7 @@ package com.example.formulario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         btnRegresar = findViewById(R.id.btnRegresar);
         tvInicio = findViewById(R.id.tvInicio);
@@ -34,48 +36,110 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         bundle = getIntent().getExtras();
         Usuario usuario = (Usuario)bundle.getSerializable("usuario");
 
-
-
         tvInicio.setText(getResources().getString(R.string.inicio)  + usuario.getNombre());
         tvRFC.setText(getResources().getString(R.string.rfc) + usuario.getRfc());
         tvEdad.setText(getResources().getString(R.string.edad) + usuario.getEdad());
         tvSZ.setText(usuario.getSignoZodiacal());
         tvSC.setText(usuario.getSignoChino());
 
-        ibSC.setBackground(getResources().getDrawable(nombre_fondo_chino(usuario.getSignoChino())));
+        ibSC.setImageDrawable(getResources().getDrawable(nombre_fondo_chino(usuario.getSignoChino())));
+        ibSZ.setImageDrawable(getResources().getDrawable(nombre_fondo_zodiaco(usuario.getSignoZodiacal())));
 
         btnRegresar.setOnClickListener(this);
     }
 
+    private int nombre_fondo_zodiaco(String signoZodiacal) {
+        int id_signo = idSignoZ(signoZodiacal);
+        switch(id_signo){
+            case 0:
+                return R.drawable.aries;
+            case 1:
+                return R.drawable.taurus;
+            case 2:
+                return R.drawable.gemini;
+            case 3:
+                return R.drawable.cancer;
+            case 4:
+                return R.drawable.leo;
+            case 5:
+                return R.drawable.virgo;
+            case 6:
+                return R.drawable.libra;
+            case 7:
+                return R.drawable.scorpio;
+            case 8:
+                return R.drawable.sagittarius;
+            case 9:
+                return R.drawable.capricorn;
+            case 10:
+                return R.drawable.aquarius;
+            case 11:
+                return R.drawable.pisces;
+        }
+        return R.drawable.libra;
+    }
+
+    private int idSignoZ(String signoZodiacal) {
+        String[] signos = {getResources().getString(R.string.aries),getResources().getString(R.string.tauro),
+                getResources().getString(R.string.geminis),getResources().getString(R.string.cancer),
+                getResources().getString(R.string.leo),getResources().getString(R.string.virgo),
+                getResources().getString(R.string.libra),getResources().getString(R.string.escorpio),
+                getResources().getString(R.string.sagitario),getResources().getString(R.string.capricornio),
+                getResources().getString(R.string.acuario),getResources().getString(R.string.piscis)
+        };
+        for(int i = 0; i <= signos.length;i++){
+            if(signoZodiacal.toLowerCase().equals(signos[i].toLowerCase())){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     private int nombre_fondo_chino(String signoChino) {
-        String tmp = signoChino.toLowerCase();
-        switch(tmp){
-            case "buey": //getResources().getString(R.string.buey):
-                return R.drawable.buey;
-            case "caballo": //getResources().getString(R.string.caballo).toLowerCase():
-                return R.drawable.caballo;
-            case "conejo": //getResources().getString(R.string.conejo).toLowerCase():
-                return R.drawable.conejo;
-            case "cerdo": //getResources().getString(R.string.cerdo).toLowerCase():
-                return R.drawable.cerdo;
-            case "dragon": //getResources().getString(R.string.dragon).toLowerCase():
-                return R.drawable.dragon;
-            case "gallo": //getResources().getString(R.string.gallo).toLowerCase():
-                return R.drawable.gallo;
-            case "mono": //getResources().getString(R.string.mono).toLowerCase():
-                return R.drawable.mono;
-            case "oveja": //getResources().getString(R.string.oveja).toLowerCase():
-                return R.drawable.oveja;
-            case "perro": //getResources().getString(R.string.perro).toLowerCase():
-                return R.drawable.perro;
-            case "rata": //getResources().getString(R.string.rata).toLowerCase():
+        int id_signo = idSignoC(signoChino);
+        switch(id_signo){
+            case 0:
                 return R.drawable.rata;
-            case "serpiente": //getResources().getString(R.string.serpiente).toLowerCase():
-                return R.drawable.serpiente;
-            case "tigre"://getResources().getString(R.string.tigre).toLowerCase():
+            case 1:
+                return R.drawable.buey;
+            case 2:
                 return R.drawable.tigre;
+            case 3:
+                return R.drawable.conejo;
+            case 4:
+                return R.drawable.dragon;
+            case 5:
+                return R.drawable.serpiente;
+            case 6:
+                return R.drawable.caballo;
+            case 7:
+                return R.drawable.oveja;
+            case 8:
+                return R.drawable.mono;
+            case 9:
+                return R.drawable.gallo;
+            case 10:
+                return R.drawable.perro;
+            case 11:
+                return R.drawable.cerdo;
         }
         return R.drawable.buey;
+    }
+
+    private int idSignoC(String signoChino) {
+        String[] signos = {getResources().getString(R.string.rata),getResources().getString(R.string.buey),
+                getResources().getString(R.string.tigre),getResources().getString(R.string.conejo),
+                getResources().getString(R.string.dragon),getResources().getString(R.string.serpiente),
+                getResources().getString(R.string.caballo),getResources().getString(R.string.oveja),
+                getResources().getString(R.string.mono),getResources().getString(R.string.gallo),
+                getResources().getString(R.string.perro),getResources().getString(R.string.cerdo)
+        };
+        for(int i = 0; i <= signos.length;i++){
+            if(signoChino.toLowerCase().equals(signos[i].toLowerCase())){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
