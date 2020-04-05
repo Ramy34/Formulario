@@ -34,9 +34,9 @@
     <string name="gallo">Rooster</string>
     <string name="perro">Dog</string>
     <string name="cerdo">Pig</string>
-    <string name="inicio">Welcome </string>
+    <string name="inicio">"Welcome "</string>
     <string name="rfc">"Your RFC is: "</string>
-    <string name="edad">Your age is: </string>
+    <string name="edad">"Your age is: "</string>
     <string name="signoChino">Your chinese zodiac sign is:</string>
     <string name="signoZodiacal">Your zodiac sign is:</string>
     <string name="regresar">Back</string>

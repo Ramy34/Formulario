@@ -3,6 +3,7 @@ package com.example.formulario;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -144,6 +145,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.button);
+        mp.start();
         switch (v.getId()){
             case R.id.btnRegresar:
                 finish();

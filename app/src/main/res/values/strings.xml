@@ -33,9 +33,9 @@
     <string name="gallo">Gallo</string>
     <string name="perro">Perro</string>
     <string name="cerdo">Cerdo</string>
-    <string name="inicio">Bienvenido </string>
-    <string name="rfc">Tu RFC es: </string>
-    <string name="edad">Tu edad es de: </string>
+    <string name="inicio">"Bienvenido "</string>
+    <string name="rfc">"Tu RFC es: "</string>
+    <string name="edad">"Tu edad es de: "</string>
     <string name="signoChino">Tu signo chino es:</string>
     <string name="signoZodiacal">Tu signo zodiacal es:</string>
     <string name="regresar">Regresar</string>
