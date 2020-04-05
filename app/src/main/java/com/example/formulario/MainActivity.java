@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText etNombre, etAp, etAm, etFecha;
     Button btnEnviar;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showDatePickerDialog((EditText) v);
                 break;
             case R.id.btnEnviar:
-                MediaPlayer mp = MediaPlayer.create(this, R.raw.button);
+                mp = MediaPlayer.create(this, R.raw.button);
                 mp.start();
                 if(validarDatos()){
                     int edad = calcularEdad();

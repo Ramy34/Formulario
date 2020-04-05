@@ -3,7 +3,9 @@ package com.example.formulario;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     TextView tvInicio, tvRFC, tvEdad, tvSC, tvSZ;
     Button btnRegresar;
     ImageButton ibSC, ibSZ;
+    MediaPlayer mp;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
-        Usuario usuario = (Usuario)bundle.getSerializable("usuario");
+        usuario = (Usuario)bundle.getSerializable("usuario");
 
         tvInicio.setText(getResources().getString(R.string.inicio)  + usuario.getNombre());
         tvRFC.setText(getResources().getString(R.string.rfc) + usuario.getRfc());
@@ -47,6 +51,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         ibSZ.setImageDrawable(getResources().getDrawable(nombre_fondo_zodiaco(usuario.getSignoZodiacal())));
 
         btnRegresar.setOnClickListener(this);
+        ibSC.setOnClickListener(this);
     }
 
     private int nombre_fondo_zodiaco(String signoZodiacal) {
@@ -145,16 +150,61 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.button);
-        mp.start();
+
         switch (v.getId()){
             case R.id.btnRegresar:
+                mp = MediaPlayer.create(this, R.raw.button);
+                mp.start();
                 finish();
                 break;
             case R.id.ibSC:
+                audio(mp, usuario.getSignoChino());
                 break;
             case R.id.ibSZ:
                 break;
         }
+    }
+
+    private void audio(MediaPlayer mp, String sigChino) {
+        int id_signo = idSignoC(sigChino);
+        switch(id_signo){
+            case 0:
+                mp = MediaPlayer.create(this, R.raw.rata);
+                break;
+            case 1:
+                mp = MediaPlayer.create(this, R.raw.buey);
+                break;
+            case 2:
+                mp = MediaPlayer.create(this, R.raw.rata);
+                break;
+            case 3:
+                mp = MediaPlayer.create(this, R.raw.tigre);
+                break;
+            case 4:
+                mp = MediaPlayer.create(this, R.raw.dragon);
+                break;
+            case 5:
+                mp = MediaPlayer.create(this, R.raw.serpiente);
+                break;
+            case 6:
+                mp = MediaPlayer.create(this, R.raw.caballo);
+                break;
+            case 7:
+                mp = MediaPlayer.create(this, R.raw.oveja);
+                break;
+            case 8:
+                mp = MediaPlayer.create(this, R.raw.mono);
+                break;
+            case 9:
+                mp = MediaPlayer.create(this, R.raw.gallo);
+                break;
+            case 10:
+                mp = MediaPlayer.create(this, R.raw.perro);
+                break;
+            case 11:
+                mp = MediaPlayer.create(this, R.raw.cerdo);
+                break;
+        }
+        mp.start();
     }
 }
