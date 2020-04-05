@@ -43,4 +43,5 @@
     <string name="descripcionSZ">It is the image of your zodiac sign</string>
     <string name="descripcionSC">It is the image of your chinese sign</string>
     <string name="nada">Nothing</string>
+    <string name="url" translatable="false">https://www.google.com/search?client=firefox-b-d</string>
 </resources>

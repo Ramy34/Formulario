@@ -2,6 +2,7 @@ package com.example.formulario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -37,7 +38,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         ibSC = findViewById(R.id.ibSC);
         ibSZ = findViewById(R.id.ibSZ);
 
-        Bundle bundle = new Bundle();
+        Bundle bundle;
         bundle = getIntent().getExtras();
         usuario = (Usuario)bundle.getSerializable("usuario");
 
@@ -52,6 +53,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
         btnRegresar.setOnClickListener(this);
         ibSC.setOnClickListener(this);
+        ibSZ.setOnClickListener(this);
     }
 
     private int nombre_fondo_zodiaco(String signoZodiacal) {
@@ -161,8 +163,15 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 audio(mp, usuario.getSignoChino());
                 break;
             case R.id.ibSZ:
+                enviarPagina();
                 break;
         }
+    }
+
+    private void enviarPagina() {
+        Intent ingresar = new Intent(this, Main3Activity.class);
+        ingresar.putExtra("sitioWeb", usuario.getSignoZodiacal());
+        startActivity(ingresar);
     }
 
     private void audio(MediaPlayer mp, String sigChino) {
@@ -175,7 +184,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 mp = MediaPlayer.create(this, R.raw.buey);
                 break;
             case 2:
-                mp = MediaPlayer.create(this, R.raw.rata);
+                mp = MediaPlayer.create(this, R.raw.conejo);
                 break;
             case 3:
                 mp = MediaPlayer.create(this, R.raw.tigre);

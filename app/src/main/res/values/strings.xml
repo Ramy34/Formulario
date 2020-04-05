@@ -42,4 +42,5 @@
     <string name="descripcionSZ">Es la imagen de tu signo zodiacal</string>
     <string name="descripcionSC">Es la imagen de tu signo chino</string>
     <string name="nada">Nada</string>
+    <string name="url">https://www.google.com/search?client=firefox-b-d</string>
 </resources>
